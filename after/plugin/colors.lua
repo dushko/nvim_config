@@ -1,9 +1,17 @@
-function ColorMyPencils(color)
-	color = color or "rose-pine"
-	vim.cmd.colorscheme(color)
+vim.o.background = 'light'
 
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none"})
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none"})
-end
+local c = require('vscode.colors').get_colors()
+require('vscode').setup({
+    -- Alternatively set style in setup
+    style = 'light',
 
-ColorMyPencils()
+    -- Enable transparent background
+    transparent = true,
+
+    -- Enable italic comment
+    italic_comments = true,
+
+    -- Disable nvim-tree background color
+    disable_nvimtree_bg = true,
+})
+require('vscode').load()
